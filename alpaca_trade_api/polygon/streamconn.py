@@ -176,7 +176,7 @@ class StreamConn(object):
         loop = self.loop
         try:
             loop.run_until_complete(self.subscribe(initial_channels))
-            loop.run_forever()
+            loop.run_until_complete(self.consume())
         except KeyboardInterrupt:
             logging.info("Exiting on Interrupt")
         finally:
